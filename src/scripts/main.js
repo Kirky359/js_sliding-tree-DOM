@@ -1,6 +1,6 @@
 'use strict';
 
-document.querySelectorAll('.tree ul ul ul').forEach((ul) => {
+document.querySelectorAll('.tree ul ul').forEach((ul) => {
   ul.style.display = 'none';
 });
 

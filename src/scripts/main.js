@@ -1,6 +1,8 @@
 'use strict';
 
-'use strict';
+document.querySelectorAll('.tree ul ul ul').forEach((ul) => {
+  ul.style.display = 'none';
+});
 
 const listItems = document.querySelectorAll('li');
 
@@ -16,12 +18,13 @@ listItems.forEach((li) => {
     li.insertBefore(span, first);
     li.removeChild(first);
 
-    const childUl = li.querySelector('ul');
+    const childUl = li.querySelector(':scope > ul');
 
     if (childUl) {
       span.addEventListener('click', () => {
-        childUl.style.display =
-          childUl.style.display === 'none' ? 'block' : 'none';
+        const isHidden = getComputedStyle(childUl).display === 'none';
+
+        childUl.style.display = isHidden ? 'block' : 'none';
       });
     }
   }
